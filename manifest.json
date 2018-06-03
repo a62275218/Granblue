@@ -1,19 +1,46 @@
 {
   "name": "GBF",
-  "version":"1.0",
+  "version": "1.0",
   "manifest_version": 2,
   "description": "granblue",
-  "browser_action": {
-    "default_icon": "logo.png"
-  },
   "permissions": [
-    "http://api.flickr.com/"
+    "storage",
+    "declarativeContent",
+    "activeTab"
   ],
-  "background":{
-    "scripts":["background.js"],
-    "persistent":false
+  "background": {
+    "scripts":[
+      "js/lib/jquery.min.js",
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "11": "images/logo.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "css": [
+        "css/index.css"
+      ],
+      "js": [
+        "js/lib/jquery.min.js",
+        "js/lib/lodash.min.js",
+        "js/lib/polyfill.min.js",
+        "js/lib/moment.js",
+        "js/content.js"
+      ],
+      "matches": [
+        "*://game.granbluefantasy.jp/*",
+        "*://gbf.game.mbga.jp/*"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "11": "images/logo.png"
   }
-  /*"page_action": {
-    "default_popup": "index.html"
-  }*/
 }
