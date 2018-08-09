@@ -16,30 +16,22 @@ const injectScript = file => {
 
 $(function () {
     chrome.runtime.sendMessage({data: $('.btn-link-quest').attr('data-href')}, res => {
-        console.log('start')
     });
-    chrome.runtime.onConnect.addListener(port=>{
-        console.log(port);
+    chrome.runtime.onConnect.addListener(port => {
         //接收popup窗口传递
-        if(port.name === 'popup_to_content'){
-            port.onMessage.addListener(res=>{
-                switch(res.message){
-                    case 'start':
-                        // let board = document.getElementsByClassName('board-tile-details')[0];
-                        // console.log(board);
-                        // board.innerText= "哈哈哈";
-                        break;
-                    default:
-                        break;
-                }
-            })
-        }
-        // switch(port.name.message){
-        //     case 'start':
-        //         console.log('start');
-        //         break;
-        //     default:
-        //         break;
-        // }
+        if (port.name === 'popup_to_content')
+        port.onMessage.addListener(res => {
+            switch (res.message) {
+                case 'star':
+                    let list = document.getElementsByClassName('prt-summon-image');
+                    console.log(list);
+                    /*for(let i=0;i<list.length;i++){
+                        console.log(list[i])
+                    }*/
+                    break;
+                default:
+                    break;
+            }
+        })
     });
 });

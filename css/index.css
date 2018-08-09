@@ -1,4 +1,9 @@
-#start{
+
+.container{
+    display:flex;
+    flex-direction: column;
+}
+
+.container button{
     width:100px;
-    color:red;
 }
