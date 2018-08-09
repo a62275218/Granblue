@@ -5,7 +5,13 @@ $(function(){
         console.log(sender);
         console.log(res)
     });
+
     $('#start').click(()=>{
-        console.log('button ')
+        chrome.tabs.query({active: true,currentWindow:true},tabs=>{
+            console.log(tabs)
+            const port = chrome.tabs.connect(tabs[0].id, { name: 'popup_to_content' });
+            console.log(port);
+            port.postMessage({message:'start'})
+        });
     })
 });

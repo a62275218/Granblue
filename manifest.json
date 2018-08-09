@@ -35,9 +35,10 @@
       ],
       "matches": [
         "*://game.granbluefantasy.jp/*",
-        "*://gbf.game.mbga.jp/*"
+        "*://gbf.game.mbga.jp/*",
+        "*://trello.com/*"
       ],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ],
   "icons": {
