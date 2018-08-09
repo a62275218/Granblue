@@ -25,7 +25,9 @@ $(function () {
             port.onMessage.addListener(res=>{
                 switch(res.message){
                     case 'start':
-                        console.log(document.getElementsByClassName('board-tile-details'));
+                        // let board = document.getElementsByClassName('board-tile-details')[0];
+                        // console.log(board);
+                        // board.innerText= "哈哈哈";
                         break;
                     default:
                         break;

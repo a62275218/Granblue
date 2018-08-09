@@ -15,17 +15,3 @@ chrome.runtime.onMessage.addListener((req,sender,res)=>{
     console.log(sender);
     console.log(res)
 });
-
-chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-    chrome.declarativeContent.onPageChanged.addRules([
-        {
-            conditions: [
-                new chrome.declarativeContent.PageStateMatcher({
-                    pageUrl: {hostContains: 'trello.com'},
-                })
-            ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-        }
-    ]);
-});
-
