@@ -13,5 +13,7 @@ chrome.runtime.onInstalled.addListener(function () {
 chrome.runtime.onMessage.addListener((req,sender,res)=>{
     console.log(req);
     console.log(sender);
-    console.log(res)
+    console.log(res);
+    switch(res.message){
+    }
 });

@@ -14,8 +14,16 @@ $(function () {
     $('#star').click(async () => {
         let currentTab = await getCurrentTab();
         chrome.tabs.update(currentTab.id, {url: 'http://game.granbluefantasy.jp/#quest/supporter/510031/5'});
+        //星号本
         message = 'star'
     });
+    $('#test').click(async()=>{
+        let currentTab = await getCurrentTab();
+        const port = chrome.tabs.connect(currentTab.id, {name: 'popup_to_content'});
+        message= 'test';
+        port.postMessage({message:message})
+    });
+
     //监听事件
     chrome.tabs.onUpdated.addListener(async (id, changeInfo, tab) => {
         const port = chrome.tabs.connect(tab.id, {name: 'popup_to_content'});
